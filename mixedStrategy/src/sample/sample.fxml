@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <SplitPane dividerPositions="0.1927710843373494" orientation="VERTICAL" prefHeight="500.0" prefWidth="400.0">
+            <items>
+                <AnchorPane minHeight="50.0" minWidth="400.0" prefHeight="100.0" prefWidth="400.0">
+                    <children>
+                        <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                            <menus>
+                                <Menu id="Game" mnemonicParsing="false" text="Игра">
+                                    <items>
+                                        <MenuItem id="New Game" fx:id="startNewGame" mnemonicParsing="false" onAction="#newGame" text="Новая игра" />
+                                        <MenuItem id="Close" mnemonicParsing="false" onAction="#closeGame" text="Закрыть" />
+                                    </items>
+                                </Menu>
+                                <Menu id="Who playing" fx:id="playList" mnemonicParsing="false" text="Тип игры">
+                                    <items>
+                                        <RadioMenuItem id="player vs pc" mnemonicParsing="false" onAction="#setPlayers" text="Игрок и ИИ">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="WhoPlaying" />
+                                            </toggleGroup></RadioMenuItem>
+                                        <RadioMenuItem id="pc vs player" mnemonicParsing="false" onAction="#setPlayers" text="ИИ и Игрок" toggleGroup="$WhoPlaying" />
+                                        <RadioMenuItem id="pc vs pc" mnemonicParsing="false" onAction="#setPlayers" text="ИИ и ИИ" toggleGroup="$WhoPlaying" />
+                                        <RadioMenuItem id="player vs player" mnemonicParsing="false" onAction="#setPlayers" text="Игрок и Игрок" toggleGroup="$WhoPlaying" />
+                                    </items>
+                                </Menu>
+                                <Menu id="Bot1" fx:id="Bot1" disable="true" mnemonicParsing="false" text="ИИ1">
+                                    <items>
+                                        <Menu id="Part1" mnemonicParsing="false" text="1 Этап">
+                                            <items>
+                                                <RadioMenuItem id="Diagonal" mnemonicParsing="false" onAction="#setTacticsBot1Part1" selected="true" text="По Диагонали">
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="BotOnePart1" />
+                                                    </toggleGroup></RadioMenuItem>
+                                                <RadioMenuItem id="Snake" mnemonicParsing="false" onAction="#setTacticsBot1Part1" text="Змейка" toggleGroup="$BotOnePart1" />
+                                                <RadioMenuItem id="Around" mnemonicParsing="false" onAction="#setTacticsBot1Part1" text="По кругу" toggleGroup="$BotOnePart1" />
+                                                <RadioMenuItem id="Row by Row" mnemonicParsing="false" onAction="#setTacticsBot1Part1" text="Строка за стр." toggleGroup="$BotOnePart1" />
+                                            </items>
+                                        </Menu>
+                                        <Menu id="Part2" mnemonicParsing="false" text="2 Этап">
+                                            <items>
+                                                <RadioMenuItem id="Attack" mnemonicParsing="false" onAction="#setTacticsBot1Part2" selected="true" text="Атака">
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="BotOnePart2" />
+                                                    </toggleGroup></RadioMenuItem>
+                                                <RadioMenuItem id="Defence" mnemonicParsing="false" onAction="#setTacticsBot1Part2" text="Оборона" toggleGroup="$BotOnePart2" />
+                                    <RadioMenuItem id="Productive attack" mnemonicParsing="false" onAction="#setMixedTacticB1Part2" text="Продуктив. атака" />
+                                            </items>
+                                        </Menu>
+                              <Menu id="mixedStrategy" mnemonicParsing="false" text="Смешанные стр.">
+                                 <items>
+                                    <RadioMenuItem id="Diagonal Offensive" mnemonicParsing="false" onAction="#setTacticsBot1MixedStr" text="Диагональное наступ." />
+                                 </items>
+                              </Menu>
+                                    </items>
+                                </Menu>
+                                <Menu id="Bot2" fx:id="Bot2" disable="true" mnemonicParsing="false" text="ИИ2">
+                                    <items>
+                                        <Menu id="Part1" mnemonicParsing="false" text="1 Этап">
+                                            <items>
+                                                <RadioMenuItem id="Diagonal" mnemonicParsing="false" onAction="#setTacticsBot2Part1" selected="true" text="По Диагонали">
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="BotTwoPart1" />
+                                                    </toggleGroup></RadioMenuItem>
+                                                <RadioMenuItem id="Snake" mnemonicParsing="false" onAction="#setTacticsBot2Part1" text="Змейка" toggleGroup="$BotTwoPart1" />
+                                                <RadioMenuItem id="Around" mnemonicParsing="false" onAction="#setTacticsBot2Part1" text="По кругу" toggleGroup="$BotTwoPart1" />
+                                                <RadioMenuItem id="Row by Row" mnemonicParsing="false" onAction="#setTacticsBot2Part1" text="Строка за стр." toggleGroup="$BotTwoPart1" />
+                                                <RadioMenuItem id="Mirroring" mnemonicParsing="false" onAction="#setTacticsBot2Part1" text="Зеркалир." toggleGroup="$BotTwoPart1" />
+                                            </items>
+                                        </Menu>
+                                        <Menu id="Part2" mnemonicParsing="false" text="2 Этап">
+                                            <items>
+                                                <RadioMenuItem id="Attack" mnemonicParsing="false" onAction="#setTacticsBot2Part2" selected="true" text="Атака" toggleGroup="$BotOnePart2" />
+                                                <RadioMenuItem id="Defence" mnemonicParsing="false" onAction="#setTacticsBot2Part2" text="Оборона" toggleGroup="$BotOnePart2" />
+                                    <RadioMenuItem id="Productive attack" mnemonicParsing="false" onAction="#setMixedTacticB2Part2" text="Продуктив. атака" />
+                                            </items>
+                                        </Menu>
+                              <Menu mnemonicParsing="false" text="Смешанные стр.">
+                                 <items>
+                                    <RadioMenuItem id="Mirror protection" mnemonicParsing="false" onAction="#setTacticsBot2MixedStr" text="Зерк. защита" />
+                                 </items>
+                              </Menu>
+                                    </items>
+                                </Menu>
+                        <Menu id="About game" mnemonicParsing="false" text="О игре">
+                          <items>
+                            <MenuItem id="Rules" mnemonicParsing="false" onAction="#showRules" text="Правила" />
+                          </items>
+                        </Menu>
+                            </menus>
+                        </MenuBar>
+                        <HBox layoutX="156.0" layoutY="55.0">
+                            <children>
+                                <Label text="Игрок 1:  " />
+                                <Label fx:id="point1" text="0" />
+                            </children>
+                        </HBox>
+                        <HBox layoutX="254.0" layoutY="55.0">
+                            <children>
+                                <Label text="Игрок 2:  " />
+                                <Label fx:id="point2" text="0" />
+                            </children>
+                        </HBox>
+                        <HBox layoutX="14.0" layoutY="55.0">
+                            <children>
+                                <Label text="Этап игры:  " />
+                                <Label fx:id="gamePart" text="1" />
+                            </children>
+                        </HBox>
+                        <Button id="start" fx:id="start" disable="true" layoutX="334.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#startGame" text="Старт" />
+                        <HBox fx:id="hBoxMoves" layoutX="14.0" layoutY="36.0" visible="false">
+                            <children>
+                                <Label text="Ходов до конца игры: " />
+                                <Label fx:id="MovesToTheEnd" text="100" />
+                            </children>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="timeToTable" minHeight="399.0" minWidth="400.0" prefHeight="399.0" prefWidth="400.0" />
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>
