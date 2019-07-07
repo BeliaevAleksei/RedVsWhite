@@ -1,7 +1,7 @@
 # RedVsWhite
   The game on the field 10x10. Done using Java FX.
 
-  You can start the application by going to the appropriate folder "mixedStrategy" or "onlyStrategy" ".\out\artifacts\RedVsWhite_jar"
+  You can run the application with [mixed strategy](https://github.com/DisLexSu/RedVsWhite/tree/master/mixedStrategy/out/artifacts/RedVsWhite_jar) or [pure strategy](https://github.com/DisLexSu/RedVsWhite/tree/master/onlyStrategy/out/artifacts/RedVsWhite_jar).
 
   This paper deals with the problem of developing strategies for a game with a non-fixed amount.
 
